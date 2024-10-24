@@ -41,6 +41,26 @@ public class middletest extends JFrame implements ActionListener, KeyListener {
         middletest f = new middletest();
     }
 
+    JPanel buttonPanel = new JPanel();
+    buttonPanel.setLayout(new GridLayout(4, 4));
+
+    String[] buttonLabels = {
+            "7", "8", "9", "/",
+            "4", "5", "6", "*",
+            "1", "2", "3", "-",
+            "0", "C", "=", "+",
+    };
+
+    for (String label ; buttonLabels) {
+        JButton button = new JButton(label);
+        button.setBackground(Color.BLACK);
+        button.setForeground(Color.WHITE);
+        button.addActionListener(this);
+        buttonPanel.add(button);
+    }
+
+    add(buttonPanel, BorderLayout.Center);
+
 }
 
 
