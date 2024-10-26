@@ -2,13 +2,19 @@ package Main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
+import static java.awt.Color;
 
 public abstract class MiddleTest extends JFrame implements ActionListener, KeyListener {
     private JTextField dispaly;
     private JTextField operator;
     private double firstNumber;
+
+    MiddleTest(this); {
+
+    }
 
     @Override //프레임 만들기
     public void setTitle(String title) {
@@ -30,12 +36,13 @@ public abstract class MiddleTest extends JFrame implements ActionListener, KeyLi
         super.setLayout(new BorderLayout());
     }
 
-    display = new JTextField();
+    display f = new JTextField();
     display.setEditable(false);
     display.setHorizontalAlignment(SwingConstants.RIGHT);
     display.setBackground(Color.WHITE);
-    display.setPreferredSize(new Dimension(300, 65));
+    display.setPreferredSize(Dimension(300, 65));
     add(display, BorderLayout.NORTH);
+
 
     public static void main(String[] args) {
         middletest f = new middletest();
@@ -57,4 +64,19 @@ public abstract class MiddleTest extends JFrame implements ActionListener, KeyLi
         buttonPanel.add(button);
     }
     add(buttonPanel, BorderLayout.Center);
+
+    private void processCommand(String command) {
+        if (command.charAt(0) >= '0' && command.charAt(0) <= '9') {
+            display.setText(display.getText() + command);
+        } else if (command.equals("C")) {
+            display.setText("");
+            firstNumber = 0;
+            operator = null;
+        } else if (command.equals("=")) {
+            double secondNumber = Double.parseDouble(display.getText());
+            double result = 0;
+
+        }
+    }
 }
+display.
