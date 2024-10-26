@@ -5,16 +5,11 @@ import java.awt.*;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
-import static java.awt.Color;
 
 public abstract class MiddleTest extends JFrame implements ActionListener, KeyListener {
     private JTextField dispaly;
     private JTextField operator;
     private double firstNumber;
-
-    MiddleTest(this); {
-
-    }
 
     @Override //프레임 만들기
     public void setTitle(String title) {
@@ -35,12 +30,12 @@ public abstract class MiddleTest extends JFrame implements ActionListener, KeyLi
     public void setLayout(LayoutManager manager) {
         super.setLayout(new BorderLayout());
     }
-
-    display f = new JTextField();
+public MiddleTest() {
+    display = new JTextField();
     display.setEditable(false);
     display.setHorizontalAlignment(SwingConstants.RIGHT);
     display.setBackground(Color.WHITE);
-    display.setPreferredSize(Dimension(300, 65));
+    display.setPreferredSize(new Dimension(300,65));
     add(display, BorderLayout.NORTH);
 
 
@@ -50,20 +45,25 @@ public abstract class MiddleTest extends JFrame implements ActionListener, KeyLi
 
     JPanel buttonPanel = new JPanel();
     buttonPanel.setLayout(new GridLayout(4, 4));
+    //버튼 생성
     String[] buttonLabels = {
             "7", "8", "9", "/",
             "4", "5", "6", "*",
             "1", "2", "3", "-",
             "0", "C", "=", "+",
     };
-    for (String label ; buttonLabels) {
+    for (String label; buttonLabels) {
         JButton button = new JButton(label);
         button.setBackground(Color.BLACK);
         button.setForeground(Color.WHITE);
         button.addActionListener(this);
         buttonPanel.add(button);
     }
-    add(buttonPanel, BorderLayout.Center);
+    void add(buttonPanel; BorderLayout.Center);
+
+    //키 리스너 추가
+    dispaly.addKeyListener(this);
+    setFocusable(true);
 
     private void processCommand(String command) {
         if (command.charAt(0) >= '0' && command.charAt(0) <= '9') {
@@ -76,7 +76,31 @@ public abstract class MiddleTest extends JFrame implements ActionListener, KeyLi
             double secondNumber = Double.parseDouble(display.getText());
             double result = 0;
 
+            switch (operator) {
+                case "+":
+                    result = firstNumber + secondNumber;
+                    break;
+                case "-":
+                    result = firstNumber - secondNumber;
+                    break;
+                case "*":
+                    result = firstNumber * secondNumber;
+                    break;
+                case "/":
+                    if(secondNumber != 0) {
+                        result = firstNumber / secondNumber;
+                    } else {
+                        dispaly.setText("Error");
+                        return;
+                    }
+                    break;
+            }
+
         }
     }
+
+    public void setDispaly(JTextField dispaly) {
+        this.dispaly = dispaly;
+    }
 }
-display.
+
