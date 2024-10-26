@@ -59,7 +59,7 @@ public MiddleTest() {
         button.addActionListener(this);
         buttonPanel.add(button);
     }
-    void add(buttonPanel; BorderLayout.Center);
+    add(buttonPanel, BorderLayout.Center);
 
     //키 리스너 추가
     dispaly.addKeyListener(this);
@@ -95,12 +95,17 @@ public MiddleTest() {
                     }
                     break;
             }
-
+            dispaly.setText(String.valueOf(result));
+        } else {
+            if(dispaly.getText(),isEmpty()) {
+                return;
+            }
+            firstNumber = Double.parseDouble(dispaly.getText());
+            operator = command;
+            dispaly.setText("");
         }
     }
 
-    public void setDispaly(JTextField dispaly) {
-        this.dispaly = dispaly;
-    }
+
 }
 
