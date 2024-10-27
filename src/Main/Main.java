@@ -95,11 +95,13 @@ public MiddleTest() {
                     }
                     break;
             }
-            dispaly.setText(String.valueOf(result));
-        } else {
-            if(dispaly.getText(),isEmpty()) {
-                return;
+            if (result == (int) result) {
+                dispaly.setText(String.valueOf((int) result));
+            } else {
+                dispaly.setText(String.valueOf(result));
             }
+            operator = null;
+        } else {
             firstNumber = Double.parseDouble(dispaly.getText());
             operator = command;
             dispaly.setText("");
