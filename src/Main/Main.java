@@ -19,19 +19,19 @@ public class Main extends JFrame implements ActionListener, KeyListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // 디스플레이 설정
+        // 디스플레이 설정 코드
         display = new JTextField();
         display.setEditable(false);
         display.setHorizontalAlignment(SwingConstants.RIGHT);
-        display.setBackground(Color.WHITE); // 배경을 흰색으로 설정
-        display.setPreferredSize(new Dimension(300, 65)); // 텍스트 필드 크기 조정 (높이 65)
+        display.setBackground(Color.WHITE); // 배경을 흰색으로 
+        display.setPreferredSize(new Dimension(300, 65)); // 텍스트 필드 크기
         add(display, BorderLayout.NORTH);
 
-        // 버튼 패널 설정
+        // 버튼 패널 설정 코드
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(4, 4));
 
-        // 버튼 생성
+        // 버튼 생성 코드
         String[] buttonLabels = {
                 "7", "8", "9", "/",
                 "4", "5", "6", "*",
@@ -41,8 +41,8 @@ public class Main extends JFrame implements ActionListener, KeyListener {
 
         for (String label : buttonLabels) {
             JButton button = new JButton(label);
-            button.setBackground(Color.BLACK); // 버튼 배경을 검은색으로 설정
-            button.setForeground(Color.WHITE); // 버튼 텍스트 색상을 흰색으로 설정
+            button.setBackground(Color.BLACK); // 버튼 배경을 검은색으로
+            button.setForeground(Color.WHITE); // 버튼 텍스트 색상을 흰색으로
             button.addActionListener(this);
             buttonPanel.add(button);
         }
@@ -51,7 +51,7 @@ public class Main extends JFrame implements ActionListener, KeyListener {
 
         // 키 리스너 추가
         display.addKeyListener(this);
-        setFocusable(true); // 프레임이 키 입력을 받을 수 있도록 설정
+        setFocusable(true); // 프레임이 키 입력을 받을 수 있도록 함
     }
 
     @Override
@@ -79,12 +79,12 @@ public class Main extends JFrame implements ActionListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        // 필요하지 않음
+
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        // 필요하지 않음
+
     }
 
     private void processCommand(String command) {
@@ -132,5 +132,5 @@ public class Main extends JFrame implements ActionListener, KeyListener {
         });
     }
 }
-// @see 뤼튼ai
+// @see 뤼튼ai 부분부분 도움 받았음
 
